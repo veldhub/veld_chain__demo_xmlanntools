@@ -1,0 +1,3 @@
+[submodule "veld_code_xmlanntools"]
+	path = veld_code_xmlanntools
+	url = https://github.com/SteffRhes/veld_code_xmlanntools.git
