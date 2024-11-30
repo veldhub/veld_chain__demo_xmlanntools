@@ -16,6 +16,6 @@ services:
       in_txt_file: DEU001_shortened.txt
       out_conllu_file: DEU001_shortened.conllu
       model: german-gsd-ud-2.15-241121
-      batch: 10
+      batch: 100
       verbose: true
 
