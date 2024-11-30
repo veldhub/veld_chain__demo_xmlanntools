@@ -1,0 +1,21 @@
+x-veld:
+  chain:
+    description: "A sample chain using xml2standoff on a ELTeC xml file. This chain extracts all
+      texts of 'div' elements but without the 'p' elements within. It also keeps the linebreaks.
+      This usage exemplifies all three parameters of using xml2standoff."
+    topics: ETL
+
+services:
+  xml2standoff:
+    extends:
+      file: ./code/veld_code_xmlanntools/veld_xml2standoff.yaml
+      service: xml2standoff
+    volumes:
+      - ./data/xml2standoff/in/:/veld/input/
+      - ./data/xml2standoff/out/:/veld/output/
+    environment:
+      in_xml_file: DEU001.xml
+      text_elements: div
+      exclude_elements: p
+      keep_linebreaks: true
+
