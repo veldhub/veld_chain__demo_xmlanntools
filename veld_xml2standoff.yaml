@@ -17,7 +17,6 @@ services:
       in_xml_file: DEU001_shortened.xml
       out_txt_file: DEU001_shortened.txt
       out_json_file: DEU001_shortened.json
-      text_elements: div
-      exclude_elements: p
+      text_elements: p
       keep_linebreaks: true
 
