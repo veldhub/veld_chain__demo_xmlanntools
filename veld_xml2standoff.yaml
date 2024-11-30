@@ -14,7 +14,9 @@ services:
       - ./data/xml2standoff/in/:/veld/input/
       - ./data/xml2standoff/out/:/veld/output/
     environment:
-      in_xml_file: DEU001.xml
+      in_xml_file: DEU001_shortened.xml
+      out_txt_file: DEU001_shortened.txt
+      out_json_file: DEU001_shortened.json
       text_elements: div
       exclude_elements: p
       keep_linebreaks: true
