@@ -1,0 +1,21 @@
+x-veld:
+  chain:
+    description: "A sample chain using tag_ud on raw text content extractet from an ELTeC xml file. 
+      This usage exemplifies all three parameters of using tag_ud."
+    topics: NLP
+
+services:
+  tag_ud:
+    extends:
+      file: ./code/veld_code_xmlanntools/veld_tag_ud.yaml
+      service: tag_ud
+    volumes:
+      - ./data/tag_ud/in/:/veld/input/
+      - ./data/tag_ud/out/:/veld/output/
+    environment:
+      in_txt_file: DEU001_100_lines.txt
+      out_conllu_file: DEU001_100_lines.conllu
+      model: german-gsd-ud-2.15-241121
+      batch: 10
+      verbose: true
+
