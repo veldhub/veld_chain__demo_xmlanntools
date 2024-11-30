@@ -12,8 +12,9 @@ services:
       - ./data/ann2standoff/in/:/veld/input/
       - ./data/ann2standoff/out/:/veld/output/
     environment:
-      in_conllu_file: DEU001_100_lines.conllu
-      in_txt_file: DEU001_100_lines.txt
+      in_conllu_file: DEU001_shortened.conllu
+      in_txt_file: DEU001_shortened.txt
       in_ann2standoff_ini_file: ann2standoff.ini
+      out_json_file: DEU001_shortened.ann.json
       profile_name: conllu
 
