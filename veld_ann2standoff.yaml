@@ -1,0 +1,19 @@
+x-veld:
+  chain:
+    description: ""
+    topics: NLP
+
+services:
+  ann2standoff:
+    extends:
+      file: ./code/veld_code_xmlanntools/veld_ann2standoff.yaml
+      service: ann2standoff
+    volumes:
+      - ./data/ann2standoff/in/:/veld/input/
+      - ./data/ann2standoff/out/:/veld/output/
+    environment:
+      in_conllu_file: DEU001_100_lines.conllu
+      in_txt_file: DEU001_100_lines.txt
+      in_ann2standoff_ini_file: ann2standoff.ini
+      profile_name: conllu
+
