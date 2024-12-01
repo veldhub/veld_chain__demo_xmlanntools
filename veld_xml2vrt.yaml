@@ -1,0 +1,29 @@
+x-veld:
+  chain:
+    description: ""
+    topics: NLP
+
+services:
+  xml2vrt:
+    extends:
+      file: ./code/veld_code_xmlanntools/veld_xml2vrt.yaml
+      service: xml2vrt
+    volumes:
+      - ./data/xml2vrt/in/:/veld/input/
+      - ./data/xml2vrt/out/:/veld/output/
+    environment:
+      in_ann_xml_file: DEU001_shortened.ann.xml
+      in_ann2standoff_ini_file: ann2standoff.ini
+      out_conlluish_xml_file: DEU001_shortened_conlluish.xml
+      #attributes: head
+      #token_element: p 
+      #include_elements: p,div
+      #exclude_elements: titleStmt,extent
+      #keep_token_tags: true
+      #keep_empty: true
+      #discard_freetext: true
+      #no_glue: true
+      #glue: bla
+      #fragment: true
+      #no_flattening: true
+
