@@ -1,7 +1,10 @@
 x-veld:
   chain:
-    description: ""
-    topics: NLP
+    description: "A demo chain veld, integrating the ann2standoff script. For more documentation, 
+      see: https://github.com/czcorpus/xmlanntools?tab=readme-ov-file#standoff2xml"
+    topics:
+      - NLP
+      - ETL
 
 services:
   standoff2xml:

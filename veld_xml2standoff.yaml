@@ -1,9 +1,10 @@
 x-veld:
   chain:
-    description: "A sample chain using xml2standoff on a ELTeC xml file. This chain extracts all
-      texts of 'div' elements but without the 'p' elements within. It also keeps the linebreaks.
-      This usage exemplifies all three parameters of using xml2standoff."
-    topics: ETL
+    description: "A demo chain veld, integrating the ann2standoff script. For more documentation, 
+      see: https://github.com/czcorpus/xmlanntools?tab=readme-ov-file#xml2standoff"
+    topics:
+      - NLP
+      - ETL
 
 services:
   xml2standoff:
