@@ -16,15 +16,11 @@ services:
       in_ann_xml_file: DEU001_shortened.ann.xml
       in_ann2standoff_ini_file: ann2standoff.ini
       out_conlluish_xml_file: DEU001_shortened_conlluish.xml
-      #attributes: head
-      #token_element: p 
-      #include_elements: p,div
-      #exclude_elements: titleStmt,extent
-      #keep_token_tags: true
-      #keep_empty: true
-      #discard_freetext: true
-      #no_glue: true
-      #glue: bla
-      #fragment: true
-      #no_flattening: true
+      attributes: head
+      exclude_elements: titleStmt,extent
+      keep_token_tags: true
+      keep_empty: true
+      discard_freetext: true
+      glue: custom_glue
+      no_flattening: true
 
