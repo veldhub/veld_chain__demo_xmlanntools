@@ -1,6 +1,6 @@
 x-veld:
   chain:
-    description: "A demo chain veld, integrating the ann2standoff script. For more documentation, 
+    description: "A demo chain veld, integrating the xml2vrt script. For more documentation, 
       see: https://github.com/czcorpus/xmlanntools?tab=readme-ov-file#xml2vrt"
     topics:
       - NLP
