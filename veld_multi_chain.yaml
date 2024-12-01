@@ -1,0 +1,95 @@
+x-veld:
+  chain:
+
+services:
+  xml2standoff:
+    extends:
+      file: ./code/veld_code_xmlanntools/veld_xml2standoff.yaml
+      service: xml2standoff
+    volumes:
+      - ./data/multi_chain/in/data/:/veld/input/
+      - ./data/multi_chain/tmp/:/veld/output/
+    environment:
+      in_xml_file: DEU001_shortened.xml
+      out_txt_file: DEU001_shortened.txt
+      out_json_file: DEU001_shortened.json
+      text_elements: p
+      keep_linebreaks: true
+
+  tag_ud:
+    extends:
+      file: ./code/veld_code_xmlanntools/veld_tag_ud.yaml
+      service: tag_ud
+    volumes:
+      - ./data/multi_chain/tmp/:/veld/input/
+      - ./data/multi_chain/tmp/:/veld/output/
+    environment:
+      in_txt_file: DEU001_shortened.txt
+      out_conllu_file: DEU001_shortened.conllu
+      model: german-gsd-ud-2.15-241121
+      batch: 100
+      verbose: true
+    depends_on:
+      xml2standoff:
+        condition: service_completed_successfully
+
+  ann2standoff:
+    extends:
+      file: ./code/veld_code_xmlanntools/veld_ann2standoff.yaml
+      service: ann2standoff
+    volumes:
+      - ./data/multi_chain/tmp/:/veld/input/data/
+      - ./data/multi_chain/in/config/:/veld/input/config/
+      - ./data/multi_chain/tmp/:/veld/output/
+    environment:
+      in_conllu_file: DEU001_shortened.conllu
+      in_txt_file: DEU001_shortened.txt
+      in_ann2standoff_ini_file: config.ini
+      out_json_file: DEU001_shortened.ann.json
+      profile_name: conllu
+    depends_on:
+      tag_ud:
+        condition: service_completed_successfully
+
+  standoff2xml:
+    extends:
+      file: ./code/veld_code_xmlanntools/veld_standoff2xml.yaml
+      service: standoff2xml
+    volumes:
+      - ./data/multi_chain/tmp/:/veld/input/
+      - ./data/multi_chain/out/:/veld/output/
+    environment:
+      in_txt_file: DEU001_shortened.txt
+      in_json_file: DEU001_shortened.json
+      in_ann_json_file: DEU001_shortened.ann.json
+      out_ann_xml_file: DEU001_shortened.ann.xml
+      token_annotation: true
+      warn_breaking: emph,hi,i,u,b
+      keep_between_sentences: true
+    depends_on:
+      ann2standoff:
+        condition: service_completed_successfully
+
+  xml2vrt:
+    extends:
+      file: ./code/veld_code_xmlanntools/veld_xml2vrt.yaml
+      service: xml2vrt
+    volumes:
+      - ./data/multi_chain/in/config/:/veld/input/config/
+      - ./data/multi_chain/out/:/veld/input/data/
+      - ./data/multi_chain/out/:/veld/output/
+    environment:
+      in_ann_xml_file: DEU001_shortened.ann.xml
+      in_ann2standoff_ini_file: config.ini
+      out_conlluish_xml_file: DEU001_shortened_conlluish.xml
+      attributes: head
+      exclude_elements: titleStmt,extent
+      keep_token_tags: true
+      keep_empty: true
+      discard_freetext: true
+      glue: custom_glue
+      no_flattening: true
+    depends_on:
+      standoff2xml:
+        condition: service_completed_successfully
+
