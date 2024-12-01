@@ -12,10 +12,10 @@ services:
       - ./data/standoff2xml/in/:/veld/input/
       - ./data/standoff2xml/out/:/veld/output/
     environment:
-      in_txt_file: DEU001_shortened.txt
-      in_json_file: DEU001_shortened.json
-      in_ann_json_file: DEU001_shortened.ann.json
-      out_ann_xml_file: DEU001_shortened.ann.xml
+      in_txt_file: DEU001.txt
+      in_json_file: DEU001.json
+      in_ann_json_file: DEU001.ann.json
+      out_ann_xml_file: DEU001.ann.xml
       token_annotation: true
       warn_breaking: emph,hi,i,u,b
       keep_between_sentences: true

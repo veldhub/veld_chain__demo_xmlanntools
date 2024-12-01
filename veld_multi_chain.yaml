@@ -10,9 +10,9 @@ services:
       - ./data/multi_chain/in/data/:/veld/input/
       - ./data/multi_chain/tmp/:/veld/output/
     environment:
-      in_xml_file: DEU001_shortened.xml
-      out_txt_file: DEU001_shortened.txt
-      out_json_file: DEU001_shortened.json
+      in_xml_file: DEU001.xml
+      out_txt_file: DEU001.txt
+      out_json_file: DEU001.json
       text_elements: p
       keep_linebreaks: true
 
@@ -24,8 +24,8 @@ services:
       - ./data/multi_chain/tmp/:/veld/input/
       - ./data/multi_chain/tmp/:/veld/output/
     environment:
-      in_txt_file: DEU001_shortened.txt
-      out_conllu_file: DEU001_shortened.conllu
+      in_txt_file: DEU001.txt
+      out_conllu_file: DEU001.conllu
       model: german-gsd-ud-2.15-241121
       batch: 100
       verbose: true
@@ -42,10 +42,10 @@ services:
       - ./data/multi_chain/in/config/:/veld/input/config/
       - ./data/multi_chain/tmp/:/veld/output/
     environment:
-      in_conllu_file: DEU001_shortened.conllu
-      in_txt_file: DEU001_shortened.txt
+      in_conllu_file: DEU001.conllu
+      in_txt_file: DEU001.txt
       in_ann2standoff_ini_file: config.ini
-      out_json_file: DEU001_shortened.ann.json
+      out_json_file: DEU001.ann.json
       profile_name: conllu
     depends_on:
       tag_ud:
@@ -59,10 +59,10 @@ services:
       - ./data/multi_chain/tmp/:/veld/input/
       - ./data/multi_chain/out/:/veld/output/
     environment:
-      in_txt_file: DEU001_shortened.txt
-      in_json_file: DEU001_shortened.json
-      in_ann_json_file: DEU001_shortened.ann.json
-      out_ann_xml_file: DEU001_shortened.ann.xml
+      in_txt_file: DEU001.txt
+      in_json_file: DEU001.json
+      in_ann_json_file: DEU001.ann.json
+      out_ann_xml_file: DEU001.ann.xml
       token_annotation: true
       warn_breaking: emph,hi,i,u,b
       keep_between_sentences: true
@@ -79,9 +79,9 @@ services:
       - ./data/multi_chain/out/:/veld/input/data/
       - ./data/multi_chain/out/:/veld/output/
     environment:
-      in_ann_xml_file: DEU001_shortened.ann.xml
+      in_ann_xml_file: DEU001.ann.xml
       in_ann2standoff_ini_file: config.ini
-      out_conlluish_xml_file: DEU001_shortened_conlluish.xml
+      out_conlluish_xml_file: DEU001_conlluish.xml
       exclude_elements: titleStmt,extent
       keep_token_tags: true
       keep_empty: true

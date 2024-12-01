@@ -13,8 +13,8 @@ services:
       - ./data/tag_ud/in/:/veld/input/
       - ./data/tag_ud/out/:/veld/output/
     environment:
-      in_txt_file: DEU001_shortened.txt
-      out_conllu_file: DEU001_shortened.conllu
+      in_txt_file: DEU001.txt
+      out_conllu_file: DEU001.conllu
       model: german-gsd-ud-2.15-241121
       batch: 100
       verbose: true

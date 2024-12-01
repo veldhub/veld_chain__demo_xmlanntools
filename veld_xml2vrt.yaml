@@ -13,9 +13,9 @@ services:
       - ./data/xml2vrt/in/config/:/veld/input/config/
       - ./data/xml2vrt/out/:/veld/output/
     environment:
-      in_ann_xml_file: DEU001_shortened.ann.xml
-      in_ann2standoff_ini_file: ann2standoff.ini
-      out_conlluish_xml_file: DEU001_shortened_conlluish.xml
+      in_ann_xml_file: DEU001.ann.xml
+      in_ann2standoff_ini_file: config.ini
+      out_conlluish_xml_file: DEU001_conlluish.xml
       exclude_elements: titleStmt,extent
       keep_token_tags: true
       keep_empty: true
