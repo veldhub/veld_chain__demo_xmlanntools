@@ -82,7 +82,6 @@ services:
       in_ann_xml_file: DEU001_shortened.ann.xml
       in_ann2standoff_ini_file: config.ini
       out_conlluish_xml_file: DEU001_shortened_conlluish.xml
-      attributes: head
       exclude_elements: titleStmt,extent
       keep_token_tags: true
       keep_empty: true
