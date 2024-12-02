@@ -23,4 +23,4 @@ e.g.
 docker compose -f veld_multi_chain.yaml up
 ```
 
-See inside the respective chain yaml files for more information.
+See inside the respective chain yaml files within this repo, or the code veld yaml files within the submodule, for more information.
