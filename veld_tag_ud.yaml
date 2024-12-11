@@ -7,10 +7,10 @@ x-veld:
       - ETL
 
 services:
-  tag_ud:
+  veld_tag_ud:
     extends:
-      file: ./code/veld_code_xmlanntools/veld_tag_ud.yaml
-      service: tag_ud
+      file: ./code/veld_code__xmlanntools/veld_tag_ud.yaml
+      service: veld_tag_ud
     volumes:
       - ./data/tag_ud/in/:/veld/input/
       - ./data/tag_ud/out/:/veld/output/

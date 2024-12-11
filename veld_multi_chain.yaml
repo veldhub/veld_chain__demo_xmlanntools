@@ -8,10 +8,10 @@ x-veld:
       - ETL
 
 services:
-  xml2standoff:
+  veld_xml2standoff:
     extends:
-      file: ./code/veld_code_xmlanntools/veld_xml2standoff.yaml
-      service: xml2standoff
+      file: ./code/veld_code__xmlanntools/veld_xml2standoff.yaml
+      service: veld_xml2standoff
     volumes:
       - ./data/multi_chain/in/data/:/veld/input/
       - ./data/multi_chain/tmp/:/veld/output/
@@ -22,10 +22,10 @@ services:
       text_elements: p
       keep_linebreaks: true
 
-  tag_ud:
+  veld_tag_ud:
     extends:
-      file: ./code/veld_code_xmlanntools/veld_tag_ud.yaml
-      service: tag_ud
+      file: ./code/veld_code__xmlanntools/veld_tag_ud.yaml
+      service: veld_tag_ud
     volumes:
       - ./data/multi_chain/tmp/:/veld/input/
       - ./data/multi_chain/tmp/:/veld/output/
@@ -36,13 +36,13 @@ services:
       batch: 100
       verbose: true
     depends_on:
-      xml2standoff:
+      veld_xml2standoff:
         condition: service_completed_successfully
 
-  ann2standoff:
+  veld_ann2standoff:
     extends:
-      file: ./code/veld_code_xmlanntools/veld_ann2standoff.yaml
-      service: ann2standoff
+      file: ./code/veld_code__xmlanntools/veld_ann2standoff.yaml
+      service: veld_ann2standoff
     volumes:
       - ./data/multi_chain/tmp/:/veld/input/data/
       - ./data/multi_chain/in/config/:/veld/input/config/
@@ -54,13 +54,13 @@ services:
       out_json_file: DEU001.ann.json
       profile_name: conllu
     depends_on:
-      tag_ud:
+      veld_tag_ud:
         condition: service_completed_successfully
 
-  standoff2xml:
+  veld_standoff2xml:
     extends:
-      file: ./code/veld_code_xmlanntools/veld_standoff2xml.yaml
-      service: standoff2xml
+      file: ./code/veld_code__xmlanntools/veld_standoff2xml.yaml
+      service: veld_standoff2xml
     volumes:
       - ./data/multi_chain/tmp/:/veld/input/
       - ./data/multi_chain/out/:/veld/output/
@@ -73,13 +73,13 @@ services:
       warn_breaking: emph,hi,i,u,b
       keep_between_sentences: true
     depends_on:
-      ann2standoff:
+      veld_ann2standoff:
         condition: service_completed_successfully
 
-  xml2vrt:
+  veld_xml2vrt:
     extends:
-      file: ./code/veld_code_xmlanntools/veld_xml2vrt.yaml
-      service: xml2vrt
+      file: ./code/veld_code__xmlanntools/veld_xml2vrt.yaml
+      service: veld_xml2vrt
     volumes:
       - ./data/multi_chain/in/config/:/veld/input/config/
       - ./data/multi_chain/out/:/veld/input/data/
@@ -95,6 +95,6 @@ services:
       glue: custom_glue
       no_flattening: true
     depends_on:
-      standoff2xml:
+      veld_standoff2xml:
         condition: service_completed_successfully
 

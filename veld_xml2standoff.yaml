@@ -7,10 +7,10 @@ x-veld:
       - ETL
 
 services:
-  xml2standoff:
+  veld_xml2standoff:
     extends:
-      file: ./code/veld_code_xmlanntools/veld_xml2standoff.yaml
-      service: xml2standoff
+      file: ./code/veld_code__xmlanntools/veld_xml2standoff.yaml
+      service: veld_xml2standoff
     volumes:
       - ./data/xml2standoff/in/:/veld/input/
       - ./data/xml2standoff/out/:/veld/output/

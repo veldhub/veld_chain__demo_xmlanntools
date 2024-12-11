@@ -7,10 +7,10 @@ x-veld:
       - ETL
 
 services:
-  xml2vrt:
+  veld_xml2vrt:
     extends:
-      file: ./code/veld_code_xmlanntools/veld_xml2vrt.yaml
-      service: xml2vrt
+      file: ./code/veld_code__xmlanntools/veld_xml2vrt.yaml
+      service: veld_xml2vrt
     volumes:
       - ./data/xml2vrt/in/data/:/veld/input/data/
       - ./data/xml2vrt/in/config/:/veld/input/config/
