@@ -1,3 +1,3 @@
-[submodule "veld_code_xmlanntools"]
-	path = code/veld_code_xmlanntools
-	url = https://github.com/SteffRhes/veld_code_xmlanntools.git
+[submodule "code/veld_code__xmlanntools"]
+	path = code/veld_code__xmlanntools
+	url = https://github.com/veldhub/veld_code__xmlanntools.git
