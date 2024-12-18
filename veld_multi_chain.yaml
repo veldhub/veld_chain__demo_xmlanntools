@@ -3,7 +3,7 @@ x-veld:
     description: "A demo chain veld, integrating all scripts into one big processing chain. For 
       more documentation, see the respective documentation of the individual chains and also at: 
       https://github.com/czcorpus/xmlanntools"
-    topics:
+    topic:
       - NLP
       - ETL
 
