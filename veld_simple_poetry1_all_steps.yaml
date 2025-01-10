@@ -1,5 +1,13 @@
 x-veld:
   chain:
+    description: "a multichain aggregating all individual steps of 
+      https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 into one single 
+      chain"
+    topic:
+      - NLP
+      - ETL
+      - Tokenization
+      - Universal Dependencies
 
 services:
 

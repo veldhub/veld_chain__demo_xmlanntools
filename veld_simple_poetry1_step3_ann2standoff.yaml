@@ -1,10 +1,13 @@
 x-veld:
   chain:
-    description: "A demo chain veld, integrating the ann2standoff script. For more documentation, 
-      see: https://github.com/czcorpus/xmlanntools?tab=readme-ov-file#ann2standoff"
+    description: "A demo chain veld, integrating the ann2standoff script and implementing the third 
+      step of the 'Simple_poetry1' example at 
+      https://github.com/czcorpus/xmlanntools/tree/main/examples#simple_poetry1 "
     topic:
       - NLP
       - ETL
+      - Tokenization
+      - Universal Dependencies
 
 services:
   veld_simple_poetry1_step3_ann2standoff:
