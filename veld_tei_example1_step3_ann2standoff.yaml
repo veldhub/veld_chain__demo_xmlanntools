@@ -18,4 +18,5 @@ services:
       in_conllu_file: TEI_example1.conllu
       in_txt_file: TEI_example1.txt
       out_json_file: TEI_example1.ann.json
+      profile_name: conllu
 
