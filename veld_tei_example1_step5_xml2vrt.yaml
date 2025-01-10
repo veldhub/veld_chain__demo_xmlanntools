@@ -1,0 +1,23 @@
+x-veld:
+  chain:
+    description: "A demo chain veld, integrating the xml2vrt script. For more documentation, 
+      see: https://github.com/czcorpus/xmlanntools?tab=readme-ov-file#xml2vrt"
+    topic:
+      - NLP
+      - ETL
+
+services:
+  veld_tei_example1_step5_xml2vrt:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_xml2vrt.yaml
+      service: veld_xml2vrt
+    volumes:
+      - ./data/TEI_example1/:/veld/input/data/
+      - ./data/TEI_example1/:/veld/output/
+    environment:
+      in_ann_xml_file: TEI_example1.ann.xml
+      profile_name: conllu
+      out_conlluish_xml_file: TEI_example1.vrt
+      include_elements: text
+      exclude_elements: front
+
