@@ -1,0 +1,22 @@
+x-veld:
+  chain:
+    description: "A demo chain veld, integrating the ann2standoff script. For more documentation, 
+      see: https://github.com/czcorpus/xmlanntools?tab=readme-ov-file#ann2standoff"
+    topic:
+      - NLP
+      - ETL
+
+services:
+  veld_simple_poetry1_step3_ann2standoff:
+    extends:
+      file: ./code/veld_code__xmlanntools/veld_ann2standoff.yaml
+      service: veld_ann2standoff
+    volumes:
+      - ./data/Simple_poetry1/:/veld/input/data/
+      - ./data/Simple_poetry1/:/veld/output/
+    environment:
+      in_conllu_file: Simple_poetry1.conllu
+      in_txt_file: Simple_poetry1.txt
+      out_json_file: Simple_poetry1.ann.json
+      profile_name: conllu
+
